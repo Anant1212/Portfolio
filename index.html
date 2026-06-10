@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anant Upadhyay | AI/ML & Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+         :root {
+            --primary: 99 102 241;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #0F172A 0%, #1E2937 100%);
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: rgb(99 102 241);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .project-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background: linear-gradient(90deg, rgb(99 102 241), rgb(139 92 246));
+            border-radius: 9999px;
+        }
+        
+        .section-header {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-slate-200 overflow-x-hidden">
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-indigo-700 rounded-2xl flex items-center justify-center text-white font-bold text-2xl">AU</div>
+                <span class="font-semibold text-2xl tracking-tighter">Anant<span class="text-indigo-400">.</span></span>
+            </div>
+
+            <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+                <a href="#home" onclick="navigateTo('home')" class="nav-link cursor-pointer">Home</a>
+                <a href="#about" onclick="navigateTo('about')" class="nav-link cursor-pointer">About</a>
+                <a href="#experience" onclick="navigateTo('experience')" class="nav-link cursor-pointer">Experience</a>
+                <a href="#projects" onclick="navigateTo('projects')" class="nav-link cursor-pointer">Projects</a>
+                <a href="#skills" onclick="navigateTo('skills')" class="nav-link cursor-pointer">Skills</a>
+                <a href="#contact" onclick="navigateTo('contact')" class="nav-link cursor-pointer">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="https://linkedin.com/in/anant-upadhyay-175b01208" target="_blank" class="px-5 py-2.5 text-sm font-semibold border border-slate-700 hover:border-indigo-500 rounded-2xl transition-colors">
+                    LinkedIn
+                </a>
+                <a href="#" onclick="downloadResume()" class="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl text-sm font-semibold transition-all flex items-center gap-2">
+                    <i class="fas fa-download"></i> Resume
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO / HOME -->
+    <section id="home" class="min-h-screen hero-bg flex items-center relative">
+        <div class="absolute inset-0 bg-[radial-gradient(at_top_right,#6366f130_0%,transparent_50%)]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-24 pb-20 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-2 bg-slate-900 border border-slate-700 px-4 py-2 rounded-3xl text-sm">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    Available for opportunities
+                </div>
+
+                <h1 class="text-6xl md:text-7xl font-bold leading-tight tracking-tighter section-header">
+                    Hi, I'm <span class="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Anant Upadhyay</span>
+                </h1>
+
+                <p class="text-2xl text-slate-400">AI/ML • React • WordPress • Shopify Developer</p>
+
+                <div class="flex flex-wrap gap-4 text-sm">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-map-marker-alt text-indigo-400"></i>
+                        <span>Noida, Uttar Pradesh, India</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-envelope text-indigo-400"></i>
+                        <span>upadhyayanant377@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <button onclick="navigateTo('projects')" class="px-8 py-4 bg-white text-slate-900 rounded-3xl font-semibold flex items-center gap-3 hover:scale-105 transition-all group">
+                        View My Work
+                        <i class="fas fa-arrow-right group-active:rotate-45 transition"></i>
+                    </button>
+                    <button onclick="navigateTo('contact')" class="px-8 py-4 border border-slate-400 rounded-3xl font-semibold hover:bg-white hover:text-slate-900 transition-all">
+                        Let's Connect
+                    </button>
+                </div>
+
+                <div class="flex gap-8 pt-6">
+                    <a href="https://github.com/Anant1212" target="_blank" class="hover:text-indigo-400 transition-colors">
+                        <i class="fab fa-github text-3xl"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/anant-upadhyay-175b01208" target="_blank" class="hover:text-indigo-400 transition-colors">
+                        <i class="fab fa-linkedin text-3xl"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative flex justify-center">
+                <div class="w-80 h-80 md:w-96 md:h-96 rounded-[4rem] overflow-hidden border-8 border-slate-800 shadow-2xl relative">
+                    <img src="https://via.placeholder.com/600x600/1E2937/64748B?text=Anant+Upadhyay" alt="Anant Upadhyay" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                </div>
+
+                <!-- Floating badges -->
+                <div class="absolute -top-6 -right-6 glass px-6 py-3 rounded-3xl border border-slate-700 shadow-xl flex items-center gap-3 animate-float">
+                    <span class="text-emerald-400 text-2xl">🚀</span>
+                    <div>
+                        <div class="text-sm font-semibold">React Developer</div>
+                        <div class="text-xs text-slate-400">Tria Tech Network</div>
+                    </div>
+                </div>
+
+                <div class="absolute -bottom-8 -left-8 glass px-6 py-3 rounded-3xl border border-slate-700 shadow-xl flex items-center gap-3 animate-float-delay">
+                    <span class="text-violet-400 text-2xl">🤖</span>
+                    <div>
+                        <div class="text-sm font-semibold">AI/ML Projects</div>
+                        <div class="text-xs text-slate-400">4+ Delivered</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 flex flex-col items-center">
+            <div class="text-xs tracking-widest mb-2">SCROLL TO EXPLORE</div>
+            <div class="w-px h-12 bg-gradient-to-b from-transparent via-slate-400 to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-5">
+                    <div class="sticky top-28">
+                        <div class="inline px-4 py-2 bg-slate-800 text-indigo-400 text-sm font-medium rounded-3xl">CHAPTER 01</div>
+                        <h2 class="text-5xl font-bold tracking-tighter section-header mt-6 mb-6">About Me</h2>
+                        <p class="text-slate-400 text-lg leading-relaxed">
+                            Passionate Full Stack &amp; AI/ML Developer crafting intelligent digital experiences.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="md:col-span-7 space-y-8 text-lg leading-relaxed text-slate-300">
+                    <p>I am a results-driven Full Stack and AI/ML Developer with hands-on experience in React.js, WordPress, NLP, Machine Learning, and modern web technologies.</p>
+                    <p>Currently working as a React Developer at <span class="text-white font-medium">Tria Tech Network</span>, I focus on building modular frontend systems and AI-powered applications.</p>
+                    <p>From developing an NLP Resume Classification System to a Gesture-Controlled Mouse and NGO Donor Platform, I thrive at the intersection of creativity and engineering.</p>
+
+                    <div class="grid grid-cols-3 gap-6 pt-8">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-indigo-400">15+</div>
+                            <div class="text-sm text-slate-400 mt-1">WordPress Sites</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-indigo-400">4+</div>
+                            <div class="text-sm text-slate-400 mt-1">AI Projects</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-indigo-400">∞</div>
+                            <div class="text-sm text-slate-400 mt-1">Learning</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <div class="inline px-4 py-2 bg-slate-800 text-indigo-400 text-sm font-medium rounded-3xl">CHAPTER 02</div>
+                    <h2 class="text-5xl font-bold tracking-tighter section-header mt-4">Experience</h2>
+                </div>
+            </div>
+
+            <div class="space-y-16">
+                <!-- Tria Tech -->
+                <div class="grid md:grid-cols-12 gap-8 group">
+                    <div class="md:col-span-3">
+                        <div class="text-slate-400">Jun 2024 — Present</div>
+                        <div class="text-indigo-400 font-medium">Bangalore, India</div>
+                    </div>
+                    <div class="md:col-span-9 bg-slate-900 border border-slate-800 rounded-3xl p-8 transition-all hover:border-indigo-500">
+                        <h3 class="text-2xl font-semibold">React Developer</h3>
+                        <h4 class="text-indigo-400">Tria Tech Network</h4>
+                        <ul class="mt-6 space-y-4 text-slate-300">
+                            <li class="flex gap-3"><span class="text-emerald-400">•</span> Designed scalable frontend architectures with React.js + Redux</li>
+                            <li class="flex gap-3"><span class="text-emerald-400">•</span> Integrated RESTful APIs for real-time applications</li>
+                            <li class="flex gap-3"><span class="text-emerald-400">•</span> Built reusable component library</li>
+                        </ul>
+                        <div class="flex gap-2 mt-8">
+                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-2xl">React</span>
+                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-2xl">Redux</span>
+                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-2xl">REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sahni’s Enterprises -->
+                <div class="grid md:grid-cols-12 gap-8 group">
+                    <div class="md:col-span-3">
+                        <div class="text-slate-400">Dec 2023 — Jun 2024</div>
+                        <div class="text-indigo-400 font-medium">Georgia, USA (Remote)</div>
+                    </div>
+                    <div class="md:col-span-9 bg-slate-900 border border-slate-800 rounded-3xl p-8 transition-all hover:border-indigo-500">
+                        <h3 class="text-2xl font-semibold">WordPress Developer</h3>
+                        <h4 class="text-indigo-400">Sahni’s Enterprises</h4>
+                        <p class="mt-4 text-slate-300">Developed 15+ responsive, SEO-optimized WordPress websites using Elementor. Delivered high-quality custom solutions for international clients.</p>
+                        <div class="flex gap-2 mt-8">
+                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-2xl">WordPress</span>
+                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-2xl">Elementor</span>
+                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-2xl">PHP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <div class="inline px-4 py-2 bg-slate-800 text-indigo-400 text-sm font-medium rounded-3xl">CHAPTER 03</div>
+                    <h2 class="text-5xl font-bold tracking-tighter section-header mt-4">Featured Projects</h2>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div onclick="showProjectModal(0)" class="project-card bg-slate-900 border border-slate-700 rounded-3xl overflow-hidden cursor-pointer">
+                    <div class="h-64 bg-gradient-to-br from-indigo-900 to-violet-900 flex items-center justify-center text-6xl">📄</div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold">Recruit I – NLP Resume Classifier</h3>
+                        <p class="text-slate-400 mt-3 line-clamp-2">AI-powered resume screening system using NLTK and lexical analysis.</p>
+                        <div class="mt-6 flex gap-2">
+                            <span class="px-3 py-1 text-xs bg-slate-800 rounded-full">Python</span>
+                            <span class="px-3 py-1 text-xs bg-slate-800 rounded-full">NLTK</span>
+                            <span class="px-3 py-1 text-xs bg-slate-800 rounded-full">NLP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div onclick="showProjectModal(1)" class="project-card bg-slate-900 border border-slate-700 rounded-3xl overflow-hidden cursor-pointer">
+                    <div class="h-64 bg-gradient-to-br from-amber-900 to-red-900 flex items-center justify-center text-6xl">🤝</div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold">Food For Life – NGO Platform</h3>
+                        <p class="text-slate-400 mt-3 line-clamp-2">Donor and NGO management system with real-time tracking.</p>
+                        <div class="mt-6 flex gap-2">
+                            <span class="px-3 py-1 text-xs bg-slate-800 rounded-full">PHP</span>
+                            <span class="px-3 py-1 text-xs bg-slate-800 rounded-full">MySQL</span>
+                            <span class="px-3 py-1 text-xs bg-slate-800 rounded-full">JS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="inline px-4 py-2 bg-slate-800 text-indigo-400 text-sm font-medium rounded-3xl">CHAPTER 04</div>
+                <h2 class="text-5xl font-bold tracking-tighter section-header mt-6">Technical Arsenal</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="space-y-10">
+                    <div>
+                        <h4 class="font-semibold mb-6 flex items-center gap-3"><span class="text-2xl">💻</span> Frontend</h4>
+                        <div class="space-y-7">
+                            <div>
+                                <div class="flex justify-between text-sm mb-2"><span>React.js</span><span>95%</span></div>
+                                <div class="h-2 bg-slate-800 rounded-full">
+                                    <div class="skill-bar w-[95%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2"><span>JavaScript</span><span>92%</span></div>
+                                <div class="h-2 bg-slate-800 rounded-full">
+                                    <div class="skill-bar w-[92%]"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-10">
+                    <div>
+                        <h4 class="font-semibold mb-6 flex items-center gap-3"><span class="text-2xl">🧠</span> AI/ML</h4>
+                        <div class="space-y-7">
+                            <div>
+                                <div class="flex justify-between text-sm mb-2"><span>NLP / NLTK</span><span>88%</span></div>
+                                <div class="h-2 bg-slate-800 rounded-full">
+                                    <div class="skill-bar w-[88%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2"><span>OpenCV</span><span>85%</span></div>
+                                <div class="h-2 bg-slate-800 rounded-full">
+                                    <div class="skill-bar w-[85%]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-10">
+                    <div>
+                        <h4 class="font-semibold mb-6 flex items-center gap-3"><span class="text-2xl">🌐</span> CMS &amp; Others</h4>
+                        <div class="space-y-7">
+                            <div>
+                                <div class="flex justify-between text-sm mb-2"><span>WordPress + Elementor</span><span>96%</span></div>
+                                <div class="h-2 bg-slate-800 rounded-full">
+                                    <div class="skill-bar w-[96%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2"><span>Shopify Liquid</span><span>80%</span></div>
+                                <div class="h-2 bg-slate-800 rounded-full">
+                                    <div class="skill-bar w-[80%]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-6">
+
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold tracking-tighter section-header">
+                    Let's Build Something Amazing
+                </h2>
+
+                <p class="mt-6 text-xl text-slate-400 max-w-2xl mx-auto">
+                    Interested in working together? Send me a message and I'll get back to you as soon as possible.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-10">
+
+                <!-- Contact Form -->
+                <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
+
+                    <h3 class="text-2xl font-semibold mb-6">
+                        Send a Message
+                    </h3>
+
+                    <form id="contactForm" class="space-y-5">
+
+                        <div>
+                            <label class="block mb-2 text-sm text-slate-400">
+                            Full Name
+                        </label>
+                            <input type="text" name="name" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500">
+                        </div>
+
+                        <div>
+                            <label class="block mb-2 text-sm text-slate-400">
+                            Email Address
+                        </label>
+                            <input type="email" name="email" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500">
+                        </div>
+
+                        <div>
+                            <label class="block mb-2 text-sm text-slate-400">
+                            Phone Number
+                        </label>
+                            <input type="tel" name="phone" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500">
+                        </div>
+
+                        <div>
+                            <label class="block mb-2 text-sm text-slate-400">
+                            Company
+                        </label>
+                            <input type="text" name="company" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500">
+                        </div>
+
+                        <div>
+                            <label class="block mb-2 text-sm text-slate-400">
+                            Subject
+                        </label>
+                            <input type="text" name="subject" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500">
+                        </div>
+
+                        <div>
+                            <label class="block mb-2 text-sm text-slate-400">
+                            Message
+                        </label>
+                            <textarea rows="6" name="message" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 py-4 rounded-xl font-semibold transition-all">
+                        Send Message
+                    </button>
+
+                    </form>
+
+                </div>
+
+                <!-- Contact Info -->
+                <div class="space-y-6">
+
+                    <div class="border border-slate-700 rounded-3xl p-8">
+                        <i class="fas fa-envelope text-4xl text-indigo-400 mb-4"></i>
+                        <h4 class="text-xl font-semibold">Email</h4>
+                        <p class="text-slate-400 mt-2">
+                            upadhyayanant377@gmail.com
+                        </p>
+                    </div>
+
+                    <div class="border border-slate-700 rounded-3xl p-8">
+                        <i class="fas fa-phone text-4xl text-indigo-400 mb-4"></i>
+                        <h4 class="text-xl font-semibold">Phone</h4>
+                        <p class="text-slate-400 mt-2">
+                            +91 9793571372
+                        </p>
+                    </div>
+
+                    <div class="border border-slate-700 rounded-3xl p-8">
+                        <i class="fas fa-location-dot text-4xl text-indigo-400 mb-4"></i>
+                        <h4 class="text-xl font-semibold">Location</h4>
+                        <p class="text-slate-400 mt-2">
+                            Noida, Uttar Pradesh, India
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="mt-20 text-center text-sm text-slate-500">
+                © 2026 Anant Upadhyay • Built with passion and lots of coffee
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROJECT MODAL -->
+    <div id="projectModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-xl z-[100] flex items-center justify-center">
+        <div id="modalContent" class="max-w-2xl w-full mx-4 glass border border-slate-700 rounded-3xl p-10"></div>
+    </div>
+
+    <script>
+        // Tailwind script already loaded
+        function initializeTailwind() {
+            // Already configured via CDN
+        }
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // GSAP Animations
+        function initAnimations() {
+            gsap.from("nav", {
+                y: -100,
+                duration: 1,
+                ease: "power3.out"
+            });
+
+            document.querySelectorAll('.project-card').forEach((card, i) => {
+                gsap.from(card, {
+                    y: 100,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: i * 0.1,
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 80%"
+                    }
+                });
+            });
+        }
+
+        // Navigation
+        function navigateTo(section) {
+            document.getElementById(section).scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        // Resume Download
+        function downloadResume() {
+            alert("📄 Resume downloaded! (In real deployment, this would trigger a PDF download)");
+            // window.location.href = "anant-upadhyay-resume.pdf";
+        }
+
+        // Project Modal
+        const projects = [{
+            title: "Recruit I – NLP Resume Classification System",
+            emoji: "📄",
+            desc: "An AI-powered resume classification system that analyzes resumes using NLP and lexical analysis techniques to improve recruiter screening efficiency.",
+            tech: ["Python", "NLTK", "JavaScript", "HTML/CSS"],
+            features: [
+                "Resume credibility classification",
+                "Keyword extraction",
+                "Automated recruiter assistance"
+            ]
+        }, {
+            title: "Food For Life – NGO Donor Platform",
+            emoji: "🤝",
+            desc: "A donor and NGO management platform designed to streamline donation tracking and improve communication.",
+            tech: ["PHP", "MySQL", "JavaScript", "HTML/CSS"],
+            features: [
+                "Real-time donation updates",
+                "Donor & NGO dashboards",
+                "150+ user growth"
+            ]
+        }];
+
+        function showProjectModal(index) {
+            const project = projects[index];
+            const modal = document.getElementById('projectModal');
+            const content = document.getElementById('modalContent');
+
+            content.innerHTML = `
+                <div class="flex justify-end">
+                    <button onclick="closeModal()" class="text-3xl text-slate-400 hover:text-white">×</button>
+                </div>
+                <div class="text-7xl mb-6">${project.emoji}</div>
+                <h3 class="text-3xl font-bold mb-4">${project.title}</h3>
+                <p class="text-slate-300 mb-8">${project.desc}</p>
+                
+                <div class="mb-8">
+                    <h4 class="font-semibold mb-4 text-indigo-400">Key Features</h4>
+                    <ul class="space-y-3">
+                        ${project.features.map(f => `<li class="flex gap-3"><span class="text-emerald-400">✔</span> ${f}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4 text-indigo-400">Tech Stack</h4>
+                    <div class="flex flex-wrap gap-3">
+                        ${project.tech.map(t => `<span class="px-5 py-2 bg-slate-800 rounded-2xl text-sm">${t}</span>`).join('')}
+                    </div>
+                </div>
+                
+                <div class="mt-12 flex gap-4">
+                    <button onclick="closeModal()" class="flex-1 py-4 border border-slate-600 rounded-2xl font-medium">Close</button>
+                    <button onclick="closeModal()" class="flex-1 py-4 bg-indigo-600 hover:bg-indigo-500 rounded-2xl font-medium">View Live Demo</button>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+        
+        // Keyboard escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") {
+                closeModal();
+            }
+        });
+        
+        // Initialize everything
+        window.onload = function() {
+            initAnimations();
+            
+            // Make navbar transparent on scroll
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    document.querySelector('nav').classList.add('bg-slate-950/80');
+                } else {
+                    document.querySelector('nav').classList.remove('bg-slate-950/80');
+                }
+            });
+            
+            console.log('%c✅ Anant Upadhyay Portfolio Loaded Successfully!', 'color:#6366f1; font-size:14px; font-family:monospace');
+        };
+    </script>
+</body>
+
+</html>

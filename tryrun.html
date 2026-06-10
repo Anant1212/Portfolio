@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anant Upadhyay | AI/ML & Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        /* ==========================
+   PRELOADER STYLES
+========================== */
+        
+        .grid-animation {
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(99, 102, 241, .15) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, .15) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveGrid 10s linear infinite;
+        }
+        
+        @keyframes moveGrid {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(50px);
+            }
+        }
+        
+        .loader-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #6366f1;
+            animation: bounce 1s infinite alternate;
+        }
+        
+        .loader-dot:nth-child(2) {
+            animation-delay: .2s;
+        }
+        
+        .loader-dot:nth-child(3) {
+            animation-delay: .4s;
+        }
+        
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+                opacity: .4;
+            }
+            to {
+                transform: translateY(-15px);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .animate-float-delay {
+            animation: float 4s ease-in-out infinite;
+            animation-delay: 1.5s;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+         :root {
+            --primary: 99 102 241;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #0F172A 0%, #1E2937 100%);
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: rgb(99 102 241);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .project-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background: linear-gradient(90deg, rgb(99 102 241), rgb(139 92 246));
+            border-radius: 9999px;
+        }
+        
+        .section-header {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        /* Floating Navbar */
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 10px;
+            background: rgba(2, 6, 23, .7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 100, .12);
+            border-radius: 24px;
+            box-shadow: rgba(0, 0, 0, .35), rgba(0, 255, 100, .08);
+        }
+        /* Logo */
+        
+        .logo-box {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            font-weight: 800;
+            background: linear-gradient( 135deg, #00ff88, #00cc66);
+            color: #000;
+        }
+        /* Nav Links */
+        
+        .nav-links {
+            background: rgba(255, 255, 255, .03);
+            padding: 8px;
+            border-radius: 16px;
+        }
+        
+        .nav-item {
+            position: relative;
+            color: #cbd5e1;
+            padding: 10px 18px;
+            border-radius: 12px;
+            transition: .3s;
+        }
+        
+        .nav-item:hover {
+            color: white;
+            background: rgba(0, 255, 100, .08);
+        }
+        
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: #00ff88;
+            transform: translateX(-50%);
+            transition: .3s;
+        }
+        
+        .nav-item:hover::after {
+            width: 70%;
+        }
+        /* LinkedIn Button */
+        
+        .linkedin-btn {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(255, 255, 255, .08);
+            transition: .3s;
+        }
+        
+        .linkedin-btn:hover {
+            color: #00ff88;
+            border-color: #00ff88;
+        }
+        /* Resume Button */
+        
+        .resume-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border-radius: 14px;
+            background: linear-gradient( 135deg, #00ff88, #00cc66);
+            color: black;
+            font-weight: 700;
+            transition: .3s;
+        }
+        
+        .resume-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(0, 255, 100, .35);
+        }
+        
+        nav {
+            animation: navAppear .8s ease;
+        }
+        
+        @keyframes navAppear {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -30px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-slate-200 overflow-x-hidden">
+    <!-- PRELOADER -->
+    <div id="preloader" class="fixed inset-0 z-[9999] bg-slate-950 flex flex-col items-center justify-center overflow-hidden">
+
+        <div class="absolute inset-0">
+            <div class="grid-animation"></div>
+        </div>
+
+        <div class="absolute w-96 h-96 rounded-full bg-indigo-600/20 blur-3xl animate-pulse"></div>
+        <div class="absolute w-72 h-72 rounded-full bg-violet-600/20 blur-3xl animate-ping"></div>
+
+        <h1 id="welcomeText" class="text-5xl md:text-8xl font-bold text-center tracking-tight opacity-0 z-10">
+            Welcome to
+            <span class="block bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent">
+            Anant's TechWorld
+        </span>
+        </h1>
+
+        <div class="mt-10 flex gap-4 z-10">
+            <span class="loader-dot"></span>
+            <span class="loader-dot"></span>
+            <span class="loader-dot"></span>
+        </div>
+
+        <p class="mt-8 text-slate-400 tracking-[0.3em] text-sm uppercase z-10">
+            Initializing Portfolio...
+        </p>
+
+    </div>
+
+
+
+    <!-- PREMIUM FLOATING NAVBAR -->
+    <nav class="sticky top-0 left-0 right-0 z-30">
+
+        <div class="nav-container">
+
+            <!-- Logo -->
+            <div class="flex items-center gap-4">
+
+                <div class="logo-box">
+                    AU
+                </div>
+
+                <div>
+                    <div class="font-bold text-xl text-white">
+                        Anant Upadhyay
+                    </div>
+
+                    <div class="flex items-center gap-2 text-xs text-green-400">
+
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Available for Work
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Navigation -->
+
+            <div class="hidden lg:flex items-center gap-2 nav-links">
+
+                <a href="#home" class="nav-item">Home</a>
+                <a href="#about" class="nav-item">About</a>
+                <a href="#experience" class="nav-item">Experience</a>
+                <a href="#projects" class="nav-item">Projects</a>
+                <a href="#skills" class="nav-item">Skills</a>
+                <a href="#contact" class="nav-item">Contact</a>
+
+            </div>
+
+            <!-- Actions -->
+
+            <div class="flex items-center gap-3">
+
+                <a href="https://linkedin.com/in/anant-upadhyay-175b01208" target="_blank" class="linkedin-btn">
+
+                    <i class="fab fa-linkedin-in"></i>
+
+                </a>
+
+                <a href="#" onclick="downloadResume()" class="resume-btn">
+
+                    <i class="fas fa-download"></i> Resume
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- HERO / HOME -->
+    <section id="home" class="min-h-screen hero-bg flex items-center relative">
+        <div class="absolute inset-0 bg-[radial-gradient(at_top_right,#6366f130_0%,transparent_50%)]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-24 pb-20 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-2 bg-slate-900 border border-slate-700 px-4 py-2 rounded-3xl text-sm">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    Available for opportunities
+                </div>
+
+                <h1 class="text-6xl md:text-7xl font-bold leading-tight tracking-tighter section-header">
+                    Hi, I'm <span class="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Anant Upadhyay</span>
+                </h1>
+
+                <p class="text-2xl text-slate-400">AI/ML • React • WordPress • Shopify Developer</p>
+
+                <div class="flex flex-wrap gap-4 text-sm">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-map-marker-alt text-indigo-400"></i>
+                        <span>Noida, Uttar Pradesh, India</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-envelope text-indigo-400"></i>
+                        <span>upadhyayanant377@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <button onclick="navigateTo('#projects')" class="px-8 py-4 bg-white text-slate-900 rounded-3xl font-semibold flex items-center gap-3 hover:scale-105 transition-all group">
+                        View My Work
+                        <i class="fas fa-arrow-right group-active:rotate-45 transition"></i>
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+            <div class="relative flex justify-center">
+                <div class="w-80 h-120 md:w-96 md:h-96 rounded-[4rem] overflow-hidden border-8 border-slate-800 shadow-2xl relative">
+                    <img src="/assets/image/hacker-arriving-secret-base-with-laptop-ready-start-programming-viruses_482257-88648.avif" alt="Hacker Developer" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                </div>
+
+                <!-- Floating badges -->
+                <div class="absolute -top-6 -right-6 glass px-6 py-3 rounded-3xl border border-slate-700 shadow-xl flex items-center gap-3 animate-float">
+                    <span class="text-emerald-400 text-2xl">🚀</span>
+                    <div>
+                        <div class="text-sm font-semibold">Top Ranker</div>
+                        <div class="text-xs text-slate-400">Web Developer</div>
+                    </div>
+                </div>
+
+
+
+
+
+
+    </section>
+
+    <!-- ================= ABOUT SECTION - CYBER COMMAND CENTER ================= -->
+    <section id="about" class="relative py-28 bg-slate-950 overflow-hidden">
+
+        <!-- Neural Network Background (Same Style as Skills) -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+
+            <!-- Glow Orbs -->
+            <div class="absolute top-20 left-20 w-72 h-72 bg-green-500/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-20 right-20 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+
+            <!-- Animated Grid -->
+            <div class="about-network"></div>
+
+            <!-- Neural Nodes -->
+            <div class="about-node n1"></div>
+            <div class="about-node n2"></div>
+            <div class="about-node n3"></div>
+            <div class="about-node n4"></div>
+            <div class="about-node n5"></div>
+
+            <!-- Connection Lines -->
+            <svg class="absolute inset-0 w-full h-full opacity-20">
+            <line x1="15%" y1="20%" x2="40%" y2="35%" stroke="#00ff88" stroke-width="1"/>
+            <line x1="40%" y1="35%" x2="75%" y2="20%" stroke="#00ff88" stroke-width="1"/>
+            <line x1="40%" y1="35%" x2="60%" y2="70%" stroke="#00ff88" stroke-width="1"/>
+            <line x1="15%" y1="20%" x2="25%" y2="75%" stroke="#00ff88" stroke-width="1"/>
+        </svg>
+
+            <!-- Floating Hacker Emojis -->
+            <div class="floating-hackers">
+                <span>👨‍💻</span>
+                <span>🥷</span>
+                <span>💻</span>
+                <span>⚡</span>
+                <span>🔐</span>
+                <span>🚀</span>
+            </div>
+
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+
+            <!-- Heading -->
+            <div class="text-center mb-20">
+
+
+
+                <h2 class="text-6xl font-black mt-6 text-white">
+                    About Me
+                </h2>
+
+                <p class="mt-4 text-slate-400 text-lg">
+                    Full Stack Developer • AI Engineer • Problem Solver
+                </p>
+
+            </div>
+
+            <!-- Main Content -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+                <!-- Terminal Card -->
+                <div class="terminal-card">
+
+                    <div class="terminal-header">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="terminal-body">
+
+                        <div class="typing-line">
+                            👨‍💻 ANANT_UPADHYAY
+                        </div>
+
+                        <div class="typing-line delay1">
+                            > FULL STACK DEVELOPER
+                        </div>
+
+                        <div class="typing-line delay2">
+                            > AI / ML ENGINEER
+                        </div>
+
+                        <div class="typing-line delay3">
+                            > REACT.JS SPECIALIST
+                        </div>
+
+                        <div class="typing-line delay4">
+                            > NLP • OPENCV • PYTHON
+                        </div>
+
+                        <div class="typing-line delay5">
+                            > BUILDING THE FUTURE...
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- About Information -->
+                <div class="space-y-6">
+
+                    <div class="about-card">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-2xl">🚀</span>
+                            <h3 class="text-xl font-semibold text-white">
+                                Who I Am
+                            </h3>
+                        </div>
+
+                        <p class="text-slate-300">
+                            Results-driven Full Stack & AI/ML Developer with expertise in React.js, WordPress, Python, Machine Learning, NLP, OpenCV, and modern web technologies.
+                        </p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-2xl">⚡</span>
+                            <h3 class="text-xl font-semibold text-white">
+                                Current Role
+                            </h3>
+                        </div>
+
+                        <p class="text-slate-300">
+                            Currently working as a React Developer at
+                            <span class="text-green-400 font-semibold">
+                            Tria Tech Network
+                        </span>, building scalable frontend architectures and AI-powered solutions.
+                        </p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-2xl">🔐</span>
+                            <h3 class="text-xl font-semibold text-white">
+                                Innovation Focus
+                            </h3>
+                        </div>
+
+                        <p class="text-slate-300">
+                            Passionate about creating intelligent systems including NLP Resume Classification, Gesture-Controlled Applications, AI Interview Platforms, and Automation Solutions.
+                        </p>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-5 pt-4">
+
+                        <div class="cyber-stat">
+                            <h4>15+</h4>
+                            <p>Projects</p>
+                        </div>
+
+                        <div class="cyber-stat">
+                            <h4>4+</h4>
+                            <p>AI Apps</p>
+                        </div>
+
+                        <div class="cyber-stat">
+                            <h4>∞</h4>
+                            <p>Learning</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <style>
+            /* ================= NETWORK BACKGROUND ================= */
+            
+            .about-network {
+                position: absolute;
+                inset: 0;
+                background-image: linear-gradient(rgba(0, 255, 100, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 100, .04) 1px, transparent 1px);
+                background-size: 60px 60px;
+                animation: gridMove 20s linear infinite;
+                mask-image: linear-gradient( to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, .7), transparent);
+            }
+            
+            @keyframes gridMove {
+                from {
+                    transform: translateY(0);
+                }
+                to {
+                    transform: translateY(60px);
+                }
+            }
+            /* ================= NODES ================= */
+            
+            .about-node {
+                position: absolute;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: #00ff88;
+                box-shadow: 0 0 15px #00ff88, 0 0 35px #00ff88;
+                animation: pulseNode 3s infinite;
+            }
+            
+            .n1 {
+                top: 20%;
+                left: 15%;
+            }
+            
+            .n2 {
+                top: 35%;
+                left: 40%;
+            }
+            
+            .n3 {
+                top: 20%;
+                left: 75%;
+            }
+            
+            .n4 {
+                top: 70%;
+                left: 60%;
+            }
+            
+            .n5 {
+                top: 75%;
+                left: 25%;
+            }
+            
+            @keyframes pulseNode {
+                0%,
+                100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.8);
+                }
+            }
+            /* ================= FLOATING HACKERS ================= */
+            
+            .floating-hackers span {
+                position: absolute;
+                font-size: 42px;
+                opacity: .06;
+                animation: floatHackers 10s ease-in-out infinite;
+            }
+            
+            .floating-hackers span:nth-child(1) {
+                top: 15%;
+                left: 10%;
+            }
+            
+            .floating-hackers span:nth-child(2) {
+                top: 70%;
+                left: 15%;
+            }
+            
+            .floating-hackers span:nth-child(3) {
+                top: 25%;
+                right: 15%;
+            }
+            
+            .floating-hackers span:nth-child(4) {
+                top: 75%;
+                right: 20%;
+            }
+            
+            .floating-hackers span:nth-child(5) {
+                top: 15%;
+                left: 50%;
+            }
+            
+            .floating-hackers span:nth-child(6) {
+                top: 65%;
+                right: 5%;
+            }
+            
+            @keyframes floatHackers {
+                50% {
+                    transform: translateY(-25px);
+                }
+            }
+            /* ================= TERMINAL ================= */
+            
+            .terminal-card {
+                background: #020617;
+                border: 1px solid rgba(0, 255, 100, .15);
+                border-radius: 24px;
+                overflow: hidden;
+                box-shadow: 0 0 40px rgba(0, 255, 100, .12);
+            }
+            
+            .terminal-header {
+                height: 55px;
+                background: #0f172a;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 0 20px;
+            }
+            
+            .terminal-header span {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+            }
+            
+            .terminal-header span:nth-child(1) {
+                background: #ff5f56;
+            }
+            
+            .terminal-header span:nth-child(2) {
+                background: #ffbd2e;
+            }
+            
+            .terminal-header span:nth-child(3) {
+                background: #27c93f;
+            }
+            
+            .terminal-body {
+                padding: 40px;
+                min-height: 320px;
+            }
+            
+            .typing-line {
+                width: 0;
+                overflow: hidden;
+                white-space: nowrap;
+                color: #00ff88;
+                font-family: monospace;
+                margin-bottom: 15px;
+                animation: typing 5s forwards;
+            }
+            
+            .delay1 {
+                animation-delay: 1s;
+            }
+            
+            .delay2 {
+                animation-delay: 3s;
+            }
+            
+            .delay3 {
+                animation-delay: 5s;
+            }
+            
+            .delay4 {
+                animation-delay: 7s;
+            }
+            
+            .delay5 {
+                animation-delay: 9s;
+            }
+            
+            @keyframes typing {
+                from {
+                    width: 0;
+                }
+                to {
+                    width: 100%;
+                }
+            }
+            /* ================= ABOUT CARDS ================= */
+            
+            .about-card {
+                background: rgba(15, 23, 42, .7);
+                backdrop-filter: blur(15px);
+                border: 1px solid rgba(0, 255, 100, .08);
+                border-radius: 20px;
+                padding: 24px;
+                transition: .35s;
+            }
+            
+            .about-card:hover {
+                transform: translateY(-6px);
+                border-color: #00ff88;
+                box-shadow: 0 0 25px rgba(0, 255, 100, .15);
+            }
+            /* ================= STATS ================= */
+            
+            .cyber-stat {
+                text-align: center;
+                background: rgba(15, 23, 42, .7);
+                border: 1px solid rgba(0, 255, 100, .08);
+                border-radius: 18px;
+                padding: 20px;
+                transition: .35s;
+            }
+            
+            .cyber-stat:hover {
+                transform: translateY(-6px);
+                border-color: #00ff88;
+                box-shadow: 0 0 25px rgba(0, 255, 100, .15);
+            }
+            
+            .cyber-stat h4 {
+                font-size: 38px;
+                font-weight: 900;
+                color: #00ff88;
+            }
+            
+            .cyber-stat p {
+                margin-top: 6px;
+                color: #94a3b8;
+                font-size: 14px;
+            }
+        </style>
+
+    </section>
+    <!-- ================= END ABOUT SECTION ================= -->
+
+    <!-- EXPERIENCE SECTION WITH ULTIMATE HACKER BACKGROUND -->
+    <section id="experience" class="relative py-24 overflow-hidden bg-slate-950">
+
+        <!-- Matrix Canvas -->
+        <div id="matrix-bg" class="absolute inset-0 z-0 opacity-30"></div>
+
+        <!-- Animated Grid -->
+        <div class="absolute inset-0 bg-grid z-0"></div>
+
+        <!-- Glow Effects -->
+        <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-green-500/10 blur-[180px] rounded-full"></div>
+        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 blur-[180px] rounded-full"></div>
+
+        <!-- Floating Cyber Particles -->
+        <div class="cyber-particles absolute inset-0 z-0">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Watermark -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+            <h1 class="text-[10vw] font-black text-green-500/5 tracking-[20px] rotate-[-15deg]">
+                ACCESS GRANTED
+            </h1>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+
+            <div class="flex justify-between items-end mb-16">
+                <div>
+
+                    <h2 class="text-5xl font-bold tracking-tighter mt-4 text-white">
+                        Experience
+                    </h2>
+                </div>
+            </div>
+
+            <div class="space-y-16">
+
+                <!-- Tria Tech -->
+                <div class="grid md:grid-cols-12 gap-8 group">
+                    <div class="md:col-span-3">
+                        <div class="text-slate-400">Jun 2024 — Present</div>
+                        <div class="text-green-400 font-medium">Bangalore, India</div>
+                    </div>
+
+                    <div class="md:col-span-9 bg-slate-900/70 backdrop-blur-md border border-slate-800 rounded-3xl p-8 transition-all duration-500 hover:border-green-500 hover:shadow-[0_0_40px_rgba(0,255,100,.25)]">
+                        <h3 class="text-2xl font-semibold text-white">React Developer</h3>
+                        <h4 class="text-green-400">Tria Tech Network</h4>
+
+                        <ul class="mt-6 space-y-4 text-slate-300">
+                            <li class="flex gap-3">
+                                <span class="text-green-400">▶</span> Designed scalable frontend architectures with React.js + Redux
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-green-400">▶</span> Integrated RESTful APIs for real-time applications
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-green-400">▶</span> Built reusable component library
+                            </li>
+                        </ul>
+
+                        <div class="flex flex-wrap gap-2 mt-8">
+                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-2xl">React</span>
+                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-2xl">Redux</span>
+                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-2xl">REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sahni's Enterprises -->
+                <div class="grid md:grid-cols-12 gap-8 group">
+                    <div class="md:col-span-3">
+                        <div class="text-slate-400">Dec 2023 — Jun 2024</div>
+                        <div class="text-green-400 font-medium">Georgia, USA (Remote)</div>
+                    </div>
+
+                    <div class="md:col-span-9 bg-slate-900/70 backdrop-blur-md border border-slate-800 rounded-3xl p-8 transition-all duration-500 hover:border-green-500 hover:shadow-[0_0_40px_rgba(0,255,100,.25)]">
+                        <h3 class="text-2xl font-semibold text-white">WordPress Developer</h3>
+                        <h4 class="text-green-400">Sahni's Enterprises</h4>
+
+                        <p class="mt-4 text-slate-300">
+                            Developed 15+ responsive, SEO-optimized WordPress websites using Elementor. Delivered custom solutions for international clients.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mt-8">
+                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-2xl">WordPress</span>
+                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-2xl">Elementor</span>
+                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-2xl">PHP</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Styles -->
+        <style>
+            .bg-grid {
+                background-image: linear-gradient(rgba(0, 255, 100, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 100, .08) 1px, transparent 1px);
+                background-size: 40px 40px;
+                animation: gridMove 15s linear infinite;
+            }
+            
+            @keyframes gridMove {
+                from {
+                    transform: translateY(0);
+                }
+                to {
+                    transform: translateY(40px);
+                }
+            }
+            
+            .cyber-particles span {
+                position: absolute;
+                width: 3px;
+                height: 3px;
+                border-radius: 50%;
+                background: #00ff88;
+                box-shadow: 0 0 15px #00ff88;
+                animation: floatParticle 20s linear infinite;
+            }
+            
+            .cyber-particles span:nth-child(1) {
+                left: 10%;
+                animation-delay: 0s;
+            }
+            
+            .cyber-particles span:nth-child(2) {
+                left: 20%;
+                animation-delay: 2s;
+            }
+            
+            .cyber-particles span:nth-child(3) {
+                left: 35%;
+                animation-delay: 4s;
+            }
+            
+            .cyber-particles span:nth-child(4) {
+                left: 50%;
+                animation-delay: 6s;
+            }
+            
+            .cyber-particles span:nth-child(5) {
+                left: 65%;
+                animation-delay: 8s;
+            }
+            
+            .cyber-particles span:nth-child(6) {
+                left: 75%;
+                animation-delay: 10s;
+            }
+            
+            .cyber-particles span:nth-child(7) {
+                left: 85%;
+                animation-delay: 12s;
+            }
+            
+            .cyber-particles span:nth-child(8) {
+                left: 95%;
+                animation-delay: 14s;
+            }
+            
+            @keyframes floatParticle {
+                from {
+                    transform: translateY(100%);
+                    opacity: 0;
+                }
+                20% {
+                    opacity: 1;
+                }
+                to {
+                    transform: translateY(-1200%);
+                    opacity: 0;
+                }
+            }
+        </style>
+
+        <!-- Matrix Animation -->
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+
+                const matrixContainer = document.getElementById("matrix-bg");
+
+                const canvas = document.createElement("canvas");
+                matrixContainer.appendChild(canvas);
+
+                const ctx = canvas.getContext("2d");
+
+                function resizeCanvas() {
+                    canvas.width = matrixContainer.offsetWidth;
+                    canvas.height = matrixContainer.offsetHeight;
+
+                    columns = Math.floor(canvas.width / fontSize);
+                    drops = Array(columns).fill(1);
+                }
+
+                const chars =
+                    "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%^&*";
+
+                const fontSize = 18;
+                let columns;
+                let drops;
+
+                resizeCanvas();
+                window.addEventListener("resize", resizeCanvas);
+
+                function draw() {
+                    ctx.fillStyle = "rgba(2,6,23,0.06)";
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                    ctx.fillStyle = "#00ff41";
+                    ctx.font = fontSize + "px monospace";
+
+                    for (let i = 0; i < drops.length; i++) {
+
+                        const text =
+                            chars[Math.floor(Math.random() * chars.length)];
+
+                        ctx.fillText(
+                            text,
+                            i * fontSize,
+                            drops[i] * fontSize
+                        );
+
+                        if (
+                            drops[i] * fontSize > canvas.height &&
+                            Math.random() > 0.975
+                        ) {
+                            drops[i] = 0;
+                        }
+
+                        drops[i]++;
+                    }
+
+                    requestAnimationFrame(draw);
+                }
+
+                draw();
+            });
+        </script>
+
+    </section>
+    <!-- PROJECTS -->
+    <section id="projects" class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+
+                    <h2 class="text-5xl font-bold tracking-tighter section-header mt-4">Featured Projects</h2>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div onclick="showProjectModal(0)" class="project-card bg-slate-900 border border-slate-700 rounded-3xl overflow-hidden cursor-pointer">
+                    <div class="h-64 bg-gradient-to-br from-indigo-900 to-violet-900 flex items-center justify-center text-6xl">📄</div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold">Recruit I – NLP Resume Classifier</h3>
+                        <p class="text-slate-400 mt-3 line-clamp-2">AI-powered resume screening system using NLTK and lexical analysis.</p>
+                        <div class="mt-6 flex gap-2">
+                            <span class="px-3 py-1 text-xs bg-slate-800 rounded-full">Python</span>
+                            <span class="px-3 py-1 text-xs bg-slate-800 rounded-full">NLTK</span>
+                            <span class="px-3 py-1 text-xs bg-slate-800 rounded-full">NLP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div onclick="showProjectModal(1)" class="project-card bg-slate-900 border border-slate-700 rounded-3xl overflow-hidden cursor-pointer">
+                    <div class="h-64 bg-gradient-to-br from-amber-900 to-red-900 flex items-center justify-center text-6xl">🤝</div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold">Food For Life – NGO Platform</h3>
+                        <p class="text-slate-400 mt-3 line-clamp-2">Donor and NGO management system with real-time tracking.</p>
+                        <div class="mt-6 flex gap-2">
+                            <span class="px-3 py-1 text-xs bg-slate-800 rounded-full">PHP</span>
+                            <span class="px-3 py-1 text-xs bg-slate-800 rounded-full">MySQL</span>
+                            <span class="px-3 py-1 text-xs bg-slate-800 rounded-full">JS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="relative py-24 overflow-hidden bg-slate-950">
+
+        <!-- Animated Neural Network Background -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+
+            <!-- Floating Orbs -->
+            <div class="absolute top-20 left-20 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-20 right-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+
+            <!-- Grid -->
+            <div class="cyber-network"></div>
+
+            <!-- Neural Nodes -->
+            <div class="node node1"></div>
+            <div class="node node2"></div>
+            <div class="node node3"></div>
+            <div class="node node4"></div>
+            <div class="node node5"></div>
+
+            <!-- Connection Lines -->
+            <svg class="absolute inset-0 w-full h-full opacity-20">
+            <line x1="15%" y1="20%" x2="40%" y2="35%" stroke="#6366f1" stroke-width="1"/>
+            <line x1="40%" y1="35%" x2="75%" y2="20%" stroke="#6366f1" stroke-width="1"/>
+            <line x1="40%" y1="35%" x2="60%" y2="70%" stroke="#6366f1" stroke-width="1"/>
+            <line x1="15%" y1="20%" x2="25%" y2="75%" stroke="#6366f1" stroke-width="1"/>
+        </svg>
+
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+
+            <div class="text-center mb-16">
+
+                <h2 class="text-5xl font-bold tracking-tighter mt-6 text-white">
+                    Technical Arsenal
+                </h2>
+
+                <p class="text-slate-400 mt-4">
+                    Technologies powering modern AI, Full Stack & Enterprise Solutions
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10">
+
+                <!-- Frontend -->
+                <div class="skill-card">
+                    <h4 class="font-semibold mb-6 flex items-center gap-3">
+                        <span class="text-3xl">💻</span> Frontend
+                    </h4>
+
+                    <div class="space-y-7">
+
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>React.js</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="skill-progress w-[95%]"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>JavaScript</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="skill-progress w-[92%]"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- AI -->
+                <div class="skill-card">
+
+                    <h4 class="font-semibold mb-6 flex items-center gap-3">
+                        <span class="text-3xl">🧠</span> AI / ML
+                    </h4>
+
+                    <div class="space-y-7">
+
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>NLP / NLTK</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="skill-progress w-[88%]"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>OpenCV</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="skill-progress w-[85%]"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- CMS -->
+                <div class="skill-card">
+
+                    <h4 class="font-semibold mb-6 flex items-center gap-3">
+                        <span class="text-3xl">🌐</span> CMS & Others
+                    </h4>
+
+                    <div class="space-y-7">
+
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>WordPress + Elementor</span>
+                                <span>96%</span>
+                            </div>
+                            <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="skill-progress w-[96%]"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>Shopify Liquid</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="skill-progress w-[80%]"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <style>
+            .cyber-network {
+                position: absolute;
+                inset: 0;
+                background-image: linear-gradient(rgba(99, 102, 241, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, .05) 1px, transparent 1px);
+                background-size: 60px 60px;
+                animation: gridFlow 20s linear infinite;
+            }
+            
+            @keyframes gridFlow {
+                from {
+                    transform: translateY(0);
+                }
+                to {
+                    transform: translateY(60px);
+                }
+            }
+            
+            .node {
+                position: absolute;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: #6366f1;
+                box-shadow: 0 0 15px #6366f1, 0 0 35px #6366f1;
+                animation: pulseNode 3s infinite;
+            }
+            
+            .node1 {
+                top: 20%;
+                left: 15%;
+            }
+            
+            .node2 {
+                top: 35%;
+                left: 40%;
+            }
+            
+            .node3 {
+                top: 20%;
+                left: 75%;
+            }
+            
+            .node4 {
+                top: 70%;
+                left: 60%;
+            }
+            
+            .node5 {
+                top: 75%;
+                left: 25%;
+            }
+            
+            @keyframes pulseNode {
+                0%,
+                100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.8);
+                }
+            }
+            
+            .skill-card {
+                background: rgba(15, 23, 42, .75);
+                backdrop-filter: blur(15px);
+                border: 1px solid rgba(99, 102, 241, .15);
+                padding: 32px;
+                border-radius: 24px;
+                transition: .4s;
+            }
+            
+            .skill-card:hover {
+                transform: translateY(-10px);
+                border-color: #6366f1;
+                box-shadow: 0 20px 50px rgba(99, 102, 241, .25);
+            }
+            
+            .skill-progress {
+                height: 100%;
+                border-radius: 999px;
+                background: linear-gradient( 90deg, #52d33e, #06b6d4);
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .skill-progress::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient( 90deg, transparent, rgba(255, 255, 255, .7), transparent);
+                animation: scan 3s infinite;
+            }
+            
+            @keyframes scan {
+                100% {
+                    left: 100%;
+                }
+            }
+        </style>
+        <!-- Bottom Fade -->
+        <div class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent pointer-events-none z-10"></div>
+
+    </section>
+
+    <section id="contact" class="relative py-32 overflow-hidden bg-[#020617]">
+
+        <!-- Aurora Background -->
+        <div class="absolute inset-0 overflow-hidden">
+
+            <div class="aurora aurora-1"></div>
+            <div class="aurora aurora-2"></div>
+            <div class="aurora aurora-3"></div>
+
+            <!-- Floating Particles -->
+            <div class="contact-particles">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-6">
+
+            <!-- Header -->
+            <div class="text-center">
+
+                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-green-500/30 bg-green-500/5 text-green-400 text-sm font-medium">
+
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Available For Opportunities
+
+                </div>
+
+                <h2 class="mt-8 text-6xl font-black tracking-tight text-white">
+                    Let's Build Something
+                    <span class="bg-gradient-to-r from-green-400 via-emerald-300 to-cyan-400 bg-clip-text text-transparent">
+                    Amazing
+                </span>
+                </h2>
+
+                <p class="mt-8 text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                    Open to full-time opportunities, AI/ML projects, enterprise web applications, consulting, and freelance work.
+                </p>
+
+            </div>
+
+            <!-- Contact Cards -->
+            <div class="grid md:grid-cols-2 gap-8 mt-20">
+
+                <a href="mailto:upadhyayanant377@gmail.com" class="contact-card group">
+
+                    <div class="icon-box">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+
+                    <div>
+                        <div class="text-sm uppercase tracking-wider text-green-400">
+                            Email
+                        </div>
+
+                        <h3 class="text-2xl font-semibold text-white mt-2">
+                            Let's Talk
+                        </h3>
+
+                        <p class="text-slate-400 mt-2">
+                            upadhyayanant377@gmail.com
+                        </p>
+                    </div>
+
+                </a>
+
+                <a href="tel:+919793571372" class="contact-card group">
+
+                    <div class="icon-box">
+                        <i class="fas fa-phone"></i>
+                    </div>
+
+                    <div>
+                        <div class="text-sm uppercase tracking-wider text-green-400">
+                            Phone
+                        </div>
+
+                        <h3 class="text-2xl font-semibold text-white mt-2">
+                            Schedule a Call
+                        </h3>
+
+                        <p class="text-slate-400 mt-2">
+                            +91 9793571372
+                        </p>
+                    </div>
+
+                </a>
+
+            </div>
+
+            <!-- Socials -->
+            <div class="mt-20 flex justify-center gap-5">
+
+                <a href="https://linkedin.com/in/anant-upadhyay-175b01208" target="_blank" class="social-btn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <a href="https://github.com/Anant1212" target="_blank" class="social-btn">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="mailto:upadhyayanant377@gmail.com" class="social-btn">
+                    <i class="fas fa-envelope"></i>
+                </a>
+
+                <a href="https://wa.me/919793571372" target="_blank" class="social-btn">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="mt-16 text-center">
+
+                <div class="h-px w-48 mx-auto bg-gradient-to-r from-transparent via-green-500 to-transparent"></div>
+
+                <p class="mt-8 text-slate-500">
+                    © 2026 Anant Upadhyay • Built with passion and lots of coffee
+                </p>
+
+            </div>
+
+        </div>
+        <style>
+            /* Aurora Background */
+            
+            .aurora {
+                position: absolute;
+                border-radius: 50%;
+                filter: blur(120px);
+                opacity: .15;
+                animation: floatAurora 15s infinite ease-in-out;
+            }
+            
+            .aurora-1 {
+                width: 500px;
+                height: 500px;
+                background: #00ff88;
+                top: -150px;
+                left: -150px;
+            }
+            
+            .aurora-2 {
+                width: 450px;
+                height: 450px;
+                background: #00ff41;
+                bottom: -150px;
+                right: -100px;
+            }
+            
+            .aurora-3 {
+                width: 350px;
+                height: 350px;
+                background: #22d3ee;
+                top: 40%;
+                left: 50%;
+            }
+            
+            @keyframes floatAurora {
+                50% {
+                    transform: translateY(-50px) translateX(30px);
+                }
+            }
+            /* Contact Cards */
+            
+            .contact-card {
+                position: relative;
+                display: flex;
+                gap: 24px;
+                align-items: center;
+                padding: 35px;
+                border-radius: 30px;
+                background: rgba(15, 23, 42, .65);
+                backdrop-filter: blur(18px);
+                border: 1px solid rgba(0, 255, 100, .15);
+                transition: .4s;
+                overflow: hidden;
+            }
+            
+            .contact-card:hover {
+                transform: translateY(-10px);
+                border-color: #00ff88;
+                box-shadow: 0 0 40px rgba(0, 255, 136, .2);
+            }
+            
+            .contact-card::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient( 120deg, transparent, rgba(255, 255, 255, .05), transparent);
+                transform: translateX(-100%);
+                transition: .8s;
+            }
+            
+            .contact-card:hover::before {
+                transform: translateX(100%);
+            }
+            /* Icon */
+            
+            .icon-box {
+                width: 75px;
+                height: 75px;
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 28px;
+                color: #00ff88;
+                background: rgba(0, 255, 100, .08);
+                border: 1px solid rgba(0, 255, 100, .2);
+            }
+            /* Social */
+            
+            .social-btn {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 20px;
+                background: rgba(15, 23, 42, .8);
+                border: 1px solid rgba(0, 255, 100, .15);
+                transition: .4s;
+            }
+            
+            .social-btn:hover {
+                transform: translateY(-8px);
+                color: #00ff88;
+                border-color: #00ff88;
+                box-shadow: 0 0 25px rgba(0, 255, 100, .3);
+            }
+            /* Floating particles */
+            
+            .contact-particles span {
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background: #00ff88;
+                box-shadow: 0 0 15px #00ff88;
+                animation: particleMove 12s linear infinite;
+            }
+            
+            .contact-particles span:nth-child(1) {
+                left: 10%;
+                animation-delay: 0s;
+            }
+            
+            .contact-particles span:nth-child(2) {
+                left: 25%;
+                animation-delay: 2s;
+            }
+            
+            .contact-particles span:nth-child(3) {
+                left: 45%;
+                animation-delay: 4s;
+            }
+            
+            .contact-particles span:nth-child(4) {
+                left: 60%;
+                animation-delay: 6s;
+            }
+            
+            .contact-particles span:nth-child(5) {
+                left: 80%;
+                animation-delay: 8s;
+            }
+            
+            .contact-particles span:nth-child(6) {
+                left: 95%;
+                animation-delay: 10s;
+            }
+            
+            @keyframes particleMove {
+                from {
+                    transform: translateY(100vh);
+                    opacity: 0;
+                }
+                20% {
+                    opacity: 1;
+                }
+                to {
+                    transform: translateY(-200px);
+                    opacity: 0;
+                }
+            }
+        </style>
+
+    </section>
+
+    <!-- PROJECT MODAL -->
+    <div id="projectModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-xl z-[100] flex items-center justify-center">
+        <div id="modalContent" class="max-w-2xl w-full mx-4 glass border border-slate-700 rounded-3xl p-10"></div>
+    </div>
+
+    <script>
+        // Tailwind script already loaded
+        function initializeTailwind() {
+            // Already configured via CDN
+        }
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // GSAP Animations
+        function initAnimations() {
+            gsap.from("nav", {
+                y: -100,
+                duration: 1,
+                ease: "power3.out"
+            });
+
+            document.querySelectorAll('.project-card').forEach((card, i) => {
+                gsap.from(card, {
+                    y: 100,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: i * 0.1,
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 80%"
+                    }
+                });
+            });
+        }
+
+        // Navigation
+        function navigateTo(section) {
+            document.getElementById(section).scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        // Resume Download
+        function downloadResume() {
+            alert("📄 Resume downloaded! (In real deployment, this would trigger a PDF download)");
+            // window.location.href = "anant-upadhyay-resume.pdf";
+        }
+
+        // Project Modal
+        const projects = [{
+            title: "Recruit I – NLP Resume Classification System",
+            emoji: "📄",
+            desc: "An AI-powered resume classification system that analyzes resumes using NLP and lexical analysis techniques to improve recruiter screening efficiency.",
+            tech: ["Python", "NLTK", "JavaScript", "HTML/CSS"],
+            features: [
+                "Resume credibility classification",
+                "Keyword extraction",
+                "Automated recruiter assistance"
+            ]
+        }, {
+            title: "Food For Life – NGO Donor Platform",
+            emoji: "🤝",
+            desc: "A donor and NGO management platform designed to streamline donation tracking and improve communication.",
+            tech: ["PHP", "MySQL", "JavaScript", "HTML/CSS"],
+            features: [
+                "Real-time donation updates",
+                "Donor & NGO dashboards",
+                "150+ user growth"
+            ]
+        }];
+
+        function showProjectModal(index) {
+            const project = projects[index];
+            const modal = document.getElementById('projectModal');
+            const content = document.getElementById('modalContent');
+
+            content.innerHTML = `
+                <div class="flex justify-end">
+                    <button onclick="closeModal()" class="text-3xl text-slate-400 hover:text-white">×</button>
+                </div>
+                <div class="text-7xl mb-6">${project.emoji}</div>
+                <h3 class="text-3xl font-bold mb-4">${project.title}</h3>
+                <p class="text-slate-300 mb-8">${project.desc}</p>
+                
+                <div class="mb-8">
+                    <h4 class="font-semibold mb-4 text-indigo-400">Key Features</h4>
+                    <ul class="space-y-3">
+                        ${project.features.map(f => `<li class="flex gap-3"><span class="text-emerald-400">✔</span> ${f}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4 text-indigo-400">Tech Stack</h4>
+                    <div class="flex flex-wrap gap-3">
+                        ${project.tech.map(t => `<span class="px-5 py-2 bg-slate-800 rounded-2xl text-sm">${t}</span>`).join('')}
+                    </div>
+                </div>
+                
+                <div class="mt-12 flex gap-4">
+                    <button onclick="closeModal()" class="flex-1 py-4 border border-slate-600 rounded-2xl font-medium">Close</button>
+                    <button onclick="closeModal()" class="flex-1 py-4 bg-indigo-600 hover:bg-indigo-500 rounded-2xl font-medium">View Live Demo</button>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+        
+        // Keyboard escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") {
+                closeModal();
+            }
+        });
+        
+        // Initialize everything
+        window.onload = function() {
+            initAnimations();
+            
+            // Make navbar transparent on scroll
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    document.querySelector('nav').classList.add('bg-slate-950/80');
+                } else {
+                    document.querySelector('nav').classList.remove('bg-slate-950/80');
+                }
+            });
+            
+            console.log('%c✅ Anant Upadhyay Portfolio Loaded Successfully!', 'color:#6366f1; font-size:14px; font-family:monospace');
+        };
+        window.onload = function () {
+
+    gsap.fromTo(
+        "#welcomeText",
+        {
+            opacity: 0,
+            scale: 0.8
+        },
+        {
+            opacity: 1,
+            scale: 1,
+            duration: 1.5,
+            ease: "power4.out"
+        }
+    );
+
+    setTimeout(() => {
+
+        gsap.to("#preloader", {
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out",
+            onComplete: () => {
+
+                document
+                    .getElementById("preloader")
+                    .remove();
+
+                initAnimations();
+
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 100) {
+                        document
+                            .querySelector('nav')
+                            .classList
+                            .add('bg-slate-950/80');
+                    } else {
+                        document
+                            .querySelector('nav')
+                            .classList
+                            .remove('bg-slate-950/80');
+                    }
+                });
+
+                console.log(
+                    '%c🚀 Welcome to Anant TechWorld',
+                    'color:#6366f1;font-size:16px;font-weight:bold'
+                );
+            }
+        });
+
+    }, 3000);
+};
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Anant Upadhyay</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body class="bg-slate-950 text-white">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+            <a href="index.html" class="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+                Anant.dev
+            </a>
+
+            <div class="flex gap-8">
+                <a href="index.html" class="hover:text-indigo-400">Home</a>
+                <a href="projects.html" class="hover:text-indigo-400">Projects</a>
+                <a href="blog.html" class="text-indigo-400">Blog</a>
+                <a href="contact.html" class="hover:text-indigo-400">Contact</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+
+        <div class="absolute inset-0">
+            <img src="assets/image/blog-bg.jpg" class="w-full h-full object-cover opacity-30">
+        </div>
+
+        <div class="absolute inset-0 bg-slate-950/80"></div>
+
+        <div class="relative z-10 text-center px-6">
+
+            <h1 class="text-6xl md:text-7xl font-bold mb-6">
+                Developer
+                <span class="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+                    Blog
+                </span>
+            </h1>
+
+            <p class="text-xl text-slate-400 max-w-3xl mx-auto">
+                Insights on AI, Machine Learning, WordPress, Shopify, React, Automation and Software Development.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- SEARCH -->
+    <section class="py-12">
+        <div class="max-w-4xl mx-auto px-6">
+
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-4 flex items-center">
+
+                <i class="fas fa-search text-slate-500 ml-2"></i>
+
+                <input type="text" placeholder="Search blogs..." class="bg-transparent w-full px-4 outline-none">
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FEATURED BLOG -->
+    <section class="pb-20">
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <h2 class="text-4xl font-bold mb-10">
+                Featured Article
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-10 bg-slate-900 border border-slate-800 rounded-[40px] overflow-hidden">
+
+                <img src="assets/image/ai-blog.jpg" class="w-full h-full object-cover">
+
+                <div class="p-10 flex flex-col justify-center">
+
+                    <span class="inline-block mb-4 px-4 py-2 bg-indigo-500/20 text-indigo-400 rounded-full w-fit">
+                        Artificial Intelligence
+                    </span>
+
+                    <h3 class="text-4xl font-bold mb-4">
+                        Building Real-World AI Applications Using Python
+                    </h3>
+
+                    <p class="text-slate-400 mb-6">
+                        Learn how to create production-ready AI applications with OpenAI, Machine Learning, LangChain, Vector Databases and Python.
+                    </p>
+
+                    <button class="px-6 py-3 bg-white text-slate-900 rounded-2xl font-semibold w-fit">
+                        Read Article
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- BLOG GRID -->
+    <section class="pb-32">
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <h2 class="text-4xl font-bold mb-10">
+                Latest Articles
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Blog Card -->
+                <article class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden hover:border-indigo-500 transition">
+
+                    <img src="assets/image/react-blog.jpg" class="w-full h-56 object-cover">
+
+                    <div class="p-6">
+
+                        <span class="text-sm text-indigo-400">React Development</span>
+
+                        <h3 class="text-2xl font-bold mt-3 mb-4">
+                            React Best Practices for Modern Applications
+                        </h3>
+
+                        <p class="text-slate-400 mb-6">
+                            Learn advanced React patterns, performance optimization and clean architecture.
+                        </p>
+
+                        <a href="#" class="text-cyan-400 font-medium">
+                            Read More →
+                        </a>
+
+                    </div>
+
+                </article>
+
+                <!-- Blog Card -->
+                <article class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden hover:border-indigo-500 transition">
+
+                    <img src="assets/image/shopify-blog.jpg" class="w-full h-56 object-cover">
+
+                    <div class="p-6">
+
+                        <span class="text-sm text-indigo-400">Shopify</span>
+
+                        <h3 class="text-2xl font-bold mt-3 mb-4">
+                            Custom Shopify Theme Development Guide
+                        </h3>
+
+                        <p class="text-slate-400 mb-6">
+                            Complete workflow for building high-converting Shopify stores.
+                        </p>
+
+                        <a href="#" class="text-cyan-400 font-medium">
+                            Read More →
+                        </a>
+
+                    </div>
+
+                </article>
+
+                <!-- Blog Card -->
+                <article class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden hover:border-indigo-500 transition">
+
+                    <img src="assets/image/ml-blog.jpg" class="w-full h-56 object-cover">
+
+                    <div class="p-6">
+
+                        <span class="text-sm text-indigo-400">Machine Learning</span>
+
+                        <h3 class="text-2xl font-bold mt-3 mb-4">
+                            Building Resume Screening AI Systems
+                        </h3>
+
+                        <p class="text-slate-400 mb-6">
+                            Create AI-powered recruitment solutions using NLP and Python.
+                        </p>
+
+                        <a href="#" class="text-cyan-400 font-medium">
+                            Read More →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="pb-32">
+
+        <div class="max-w-4xl mx-auto px-6">
+
+            <div class="bg-gradient-to-r from-indigo-600/20 to-cyan-600/20 border border-slate-800 rounded-[40px] p-12 text-center">
+
+                <h2 class="text-4xl font-bold mb-4">
+                    Stay Updated
+                </h2>
+
+                <p class="text-slate-400 mb-8">
+                    Get AI, React, WordPress and Shopify tips directly in your inbox.
+                </p>
+
+                <div class="flex flex-col md:flex-row gap-4">
+
+                    <input type="email" placeholder="Enter your email" class="flex-1 px-6 py-4 rounded-2xl bg-slate-900 border border-slate-700 outline-none">
+
+                    <button class="px-8 py-4 bg-white text-slate-900 rounded-2xl font-semibold">
+                        Subscribe
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800 py-8">
+        <div class="max-w-7xl mx-auto px-6 text-center text-slate-500">
+            © 2026 Anant Upadhyay. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+
+</html>
